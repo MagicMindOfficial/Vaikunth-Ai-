@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-sm: calc(var(--radius) * 0.6);
+}
+
+:root {
+  --background: #000000; /* Pure black */
+  --foreground: oklch(1 0 0); /* Pure white */
+  
+  --card: #0a0a0a;
+  --card-foreground: oklch(1 0 0);
+  
+  --popover: #050505;
+  --popover-foreground: oklch(1 0 0);
+  
+  --primary: oklch(0.55 0.25 285); /* Premium Purple */
+  --primary-foreground: oklch(1 0 0);
+  
+  --secondary: oklch(0.2 0.05 285); /* Deep Navy Purple */
+  --secondary-foreground: oklch(1 0 0);
+  
+  --muted: #111111;
+  --muted-foreground: oklch(0.6 0 0);
+  
+  --accent: oklch(0.85 0.15 85); /* Luxury Gold */
+  --accent-foreground: oklch(0 0 0);
+  
+  --destructive: oklch(0.6 0.2 30);
+  --destructive-foreground: oklch(1 0 0);
+  
+  --border: rgba(255, 255, 255, 0.05);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: oklch(0.55 0.25 285);
+  
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html, body {
+    @apply bg-black text-foreground antialiased;
+    background-color: #000000 !important;
+  }
+  ::selection {
+    @apply bg-purple-500/30 text-white;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .premium-gradient {
+    background: linear-gradient(135deg, #1e1b4b 0%, #000000 100%);
+  }
+
+  .purple-glow {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
